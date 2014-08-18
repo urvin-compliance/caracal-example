@@ -1,0 +1,311 @@
+#-----------------------------------------------------
+# page settings
+#-----------------------------------------------------
+
+docx.page_numbers true do
+  align :center
+end
+
+docx.style id: 'AltFont', name: 'altFont', font: 'Palatino'
+
+
+#-----------------------------------------------------
+# cover
+#-----------------------------------------------------
+
+7.times do
+  docx.br
+end
+docx.img 'https://app.plia.com/images/plia-login.png', width: 400, height: 124, align: :right
+
+
+12.times do
+  docx.br
+end
+docx.p 'Caracal Library', style: 'Title', align: :right
+docx.p 'Capabilities Overview', style: 'Subtitle', align: :right
+docx.br
+docx.br
+docx.p Date.today.strftime('%B %d, %Y'), color: '666666', align: :right
+
+
+#-----------------------------------------------------
+# introduction
+#-----------------------------------------------------
+
+docx.page
+docx.h1 'Introduction'
+docx.hr
+
+# docx.h2 'Overview'
+docx.p 'Caracal is a pure Ruby library for generating dynamic Microsoft Word documents. While the library does not support the entire Open XML specification, most common Word features are available.'
+docx.br
+docx.p 'Major features include:'
+docx.ul do
+  li 'Custom page sizes and margins'
+  li 'Custom styles (including the manipulation of font, size, color, alignment, margins, leading, etc.)'
+  li 'Paragraph text, headings, and external links'
+  li 'Ordered and unordered lists'
+  li 'Images'
+  li 'Tables'
+  li 'Page numbers'
+end
+docx.br
+
+docx.h2 'Purpose'
+docx.p 'This document provides a high-level review of Caracal\'s capabilities.  The idea is to provide product specialists with enough information so that when they design reports and other output files, the requirements can be supported by the library.'
+docx.br
+
+docx.h2 'Note'
+docx.p 'This document was created using Caracal.', italic: true
+
+
+#-----------------------------------------------------
+# paragraphs
+#-----------------------------------------------------
+
+docx.page
+docx.h1 'Paragraphs'
+docx.hr
+
+docx.p 'Like all word processing software programs, Caracal\'s chief strength is text formatting.  It is capable of rendering text in any font, size, color, effect, and alignment you might reasonably want to specify.'
+docx.br
+
+docx.h2 'Fonts'
+docx.p 'Caracal can render text in any font supported on the client machine.'
+docx.br
+docx.p 'This sentence is rendered in Arial.'
+docx.p 'This sentence is rendered in Palantino.', style: 'AltFont'
+docx.br
+
+docx.h2 'Colors'
+docx.p 'Caracal can render text in any RGB color you specify.'
+docx.br
+docx.p 'This sentence is rendered in blue.', color: '3366cc'
+docx.p 'This sentence is rendered in red.', color: 'cc3300'
+docx.br
+
+docx.h2 'Sizes'
+docx.p 'Caracal can render text in any point size you specify.'
+docx.br
+docx.p 'This sentence is rendered in 10pt.'
+docx.p 'This sentence is rendered in 12pt.', size: 24
+docx.p 'This sentence is rendered in 14pt.', size: 28
+docx.br
+
+docx.h2 'Effects'
+docx.p 'Caracal can render text with the standard set of effects.'
+docx.br
+docx.p 'This sentence is rendered with a bold effect.', bold: true
+docx.p 'This sentence is rendered with a italic effect.', italic: true
+docx.p 'This sentence is rendered with a underline effect.', underline: true
+docx.br
+
+docx.h2 'Alignment'
+docx.p 'Caracal can render text with the standard set of alignments.'
+docx.br
+docx.p 'This sentence is rendered with a left alignment.'
+docx.p 'This sentence is rendered with a center alignment.', align: :center
+docx.p 'This sentence is rendered with a right alignment.', align: :right
+docx.p 'These sentences are rendered with the text aligned with both the left and right margins. This sentence is just to make the paragraph long enough to span more than one line so the effect is visible.', align: :both
+docx.br
+
+docx.h2 'Combined'
+docx.p 'Caracal can render text with any combination of the preceding capabilities.'
+docx.br
+docx.p do
+  text 'This sentence is rendered with the standard font, size, color, etc. '
+  text 'Then we can switch the color. ', color: '3366cc'
+  text 'Then we can change the effect. ', bold: true, italic: true
+  text 'We can change the size and underline the text, too', size: 24, underline: true
+  text '. You get the idea.'
+end
+docx.br
+
+
+#-----------------------------------------------------
+# Headings/Links/Lists
+#-----------------------------------------------------
+
+docx.page
+docx.h1 'Headings, Links, & Lists'
+docx.hr
+
+docx.p 'Headings, links, and lists are simply extensions of Caracal\'s paragraph functionality. Generally speaking, any formatting feature supported by paragraphs are also supported by headings, links, and lists.'
+docx.br
+
+docx.h2 'Headings'
+docx.p 'In addition to the Heading 1 and Heading 2 styles used liberally throughout this document, Caracal supports Heading 3, Heading 4, Heading 5, and Heading 6 by default. This should provide a sufficient number of heading styles for most documents, but if you need more, you can always define a custom style to achieve the same effect.'
+docx.br
+docx.h3 'This sentence is rendered as a Heading 3.'
+docx.h4 'This sentence is rendered as a Heading 4.'
+docx.h5 'This sentence is rendered as a Heading 5.'
+docx.h6 'This sentence is rendered as a Heading 6.'
+docx.br
+
+docx.h2 'Links'
+docx.p 'Caracal supports adding external links to your document. Similar to headings, links support all the same options as paragraphs.'
+docx.br
+docx.p do
+  text 'This sentence has a link to the '
+  link 'Google', 'http://www.google.com'
+  text ' homepage.'
+end
+docx.br
+
+docx.h2 'Lists'
+docx.p 'Caracal supports both ordered and unordered lists. By default, Caracal establishes 9 levels of styles for each type of list. This should provide a sufficient number of styles for most documents, but if you need more, you can always define more levels.'
+docx.br
+docx.p 'List items can be formatted using any options available to standard text.'
+docx.br
+docx.p 'This is an ordered list with nested levels:'
+docx.ol do
+  li 'This is the first item.'
+  li do
+    text 'This is a second item.'
+    ol do
+      li 'This is a nested item.'
+    end
+  end
+  li do
+    text 'This is a third item with a '
+    link 'link', 'http://www.google.com'
+    text '.'
+  end
+end
+docx.br
+docx.p 'This is an ordered list with nested levels:'
+docx.ol do
+  li 'This is the first item.'
+  li do
+    text 'This is a second item.'
+    ol do
+      li 'This is a nested item.'
+    end
+  end
+  li do
+    text 'This is a third item with a '
+    link 'link', 'http://www.google.com'
+    text '.'
+  end
+end
+docx.br
+docx.p 'This is an unordered list with nested levels:'
+docx.ul do
+  li 'This is the first item.'
+  li do
+    text 'This is a second item.'
+    ul do
+      li 'This is a nested item.'
+    end
+  end
+  li do
+    text 'This is a third item with a '
+    link 'link', 'http://www.google.com'
+    text '.'
+  end
+end
+docx.br
+docx.p 'Ordered and unordered lists can be mixed at any level and styled however you like:'
+docx.ul do
+  li 'This is the first item.'
+  li do
+    text 'This is a second item.', bold: true
+    ol do
+      li 'This is a nested item.', italic: true
+      li 'This is another nested item.', color: '3366cc'
+    end
+  end
+  li do
+    text 'This is a third item with a '
+    link 'link', 'http://www.google.com'
+    text '.'
+  end
+end
+docx.br
+
+
+#-----------------------------------------------------
+# Images
+#-----------------------------------------------------
+
+docx.page
+docx.h1 'Images'
+docx.hr
+
+docx.p 'Caracal allows images to be embedded in and distributed with the document. Images can be sized to any dimension and aligned to the left, center, or right.'
+docx.br
+docx.img 'https://app.plia.com/images/plia-login.png', width: 200, height: 62, align: :left
+docx.p 'This image is left aligned.'
+docx.br
+docx.img 'https://app.plia.com/images/plia-login.png', width: 200, height: 62, align: :center
+docx.p 'This image is center aligned.', align: :center
+docx.br
+docx.img 'https://app.plia.com/images/plia-login.png', width: 200, height: 62, align: :right
+docx.p 'This image is right aligned.', align: :right
+docx.br
+
+
+#-----------------------------------------------------
+# Tables
+#-----------------------------------------------------
+
+row1 = ['Header 1', 'Header 2', 'Header 3']
+row2 = ['Cell 1', 'Cell 2', 'Cell 3']
+row3 = ['Cell 4', 'Cell 5', 'Cell 6']
+row4 = ['Footer 1', 'Footer 2', 'Footer 3']
+c1 = Caracal::Core::Models::TableCellModel.new margins: { top: 0, bottom: 100, left: 0, right: 200 } do
+  table [row1.dup, row2.dup, row3.dup, row4.dup], border_size: 4 do
+    cell_style rows[0],  bold: true, background: '3366cc', color: 'ffffff'
+    cell_style rows[-1], bold: true,   background: 'dddddd'
+    cell_style cells[3], italic: true, color: 'cc0000'
+    cell_style cells,    size: 18, margins: { top: 100, bottom: 0, left: 100, right: 100 }
+  end
+end
+c2 = Caracal::Core::Models::TableCellModel.new margins: { top: 0, bottom: 100, left: 0, right: 200 } do
+  p 'This layout uses nested tables (the outer table has no border) to provide a caption to the table data.'
+end
+
+docx.page
+docx.h1 'Tables'
+docx.hr
+
+docx.p 'Caracal supports table structures for displaying tabular data.  Both borders and text styling can be set on a cell-by-cell basis.'
+docx.br
+
+docx.h2 'Simple Tables'
+docx.table [row1.dup, row2.dup, row3.dup, row4.dup], border_size: 4 do
+  cell_style rows[0],    bold: true,   background: '3366cc', color: 'ffffff'
+  cell_style rows[-1],   bold: true,   background: 'dddddd'
+  cell_style cells[5],   italic: true, color: 'cc0000'
+  cell_style cols[0],    width: 6000
+  cell_style cells,      size: 18, margins: { top: 100, bottom: 0, left: 100, right: 100 }
+end
+docx.br
+docx.br
+
+docx.h2 'Nested Tables'
+docx.table [[c1,c2]] do
+  cell_style cols[0], width: 6000
+end
+
+
+#-----------------------------------------------------
+# Settings
+#-----------------------------------------------------
+
+docx.page
+docx.h1 'Page Settings'
+docx.hr
+
+docx.h2 'Size'
+docx.p 'Caracal allows you to specify page dimensions of any width and height. By default, Caracal initializes a page with US standard A4 dimensions.'
+docx.br
+
+docx.h2 'Margins'
+docx.p 'Caracal allows you to specify page margins of any reasonable size. By default, Caracal initializes 1.0in margins on each side of the document.'
+docx.br
+
+docx.h2 'Numbers'
+docx.p 'Caracal allows you to add page numbers to the footer. If elected, page numbers can be aligned to the left, center, or right. By default, page numbers are not included.'
+docx.br
