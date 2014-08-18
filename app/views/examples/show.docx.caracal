@@ -282,12 +282,17 @@ docx.table [row1.dup, row2.dup, row3.dup, row4.dup], border_size: 4 do
   cell_style cells,      size: 18, margins: { top: 100, bottom: 0, left: 100, right: 100 }
 end
 docx.br
-docx.br
 
 docx.h2 'Nested Tables'
 docx.table [[c1,c2]] do
   cell_style cols[0], width: 6000
 end
+docx.br
+
+docx.h2 'Other Notes'
+docx.p  'In theory, tables can nest infinitely.  As a practical matter, nesting will, of course, be limited by the dimensions of the page'
+docx.br
+docx.p  'With the exception of page breaks, anything that can be rendered on the document can also be rendered within a table cell.'
 
 
 #-----------------------------------------------------
