@@ -1,4 +1,4 @@
-= Caracal Example
+# Caracal Example
 
 This project is a simple Rails application that demonstrates how to
 use Caracal to generate MSWord documents in what the library authors
@@ -11,9 +11,9 @@ team often uses the resulting output for compatibility tests between
 the innumerable versions of Word.
 
 
-== Getting Started
+## Getting Started
 
-=== Web Server
+### Web Server
 
 Because this example page includes images, it requires more than one
 processing thread. **Please, do not use Webrick.**  Webrick is
@@ -24,7 +24,7 @@ We recommend using Unicorn instead.  The unicorn gem will be installed
 when you `bundle install`.
 
 
-== Routes
+### Routes
 
 The project is configured to run the example code from the root route.
 To generate the file, simply load http://localhost:3000 (or whichever
