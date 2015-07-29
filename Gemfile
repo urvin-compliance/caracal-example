@@ -31,5 +31,5 @@ gem 'sdoc',         '~> 0.4.0', group: :doc
 # msword
 #----------------------------------------------------
 
-gem 'caracal',       path: '~/workspace/_gems/caracal'
-gem 'caracal-rails', '~> 0.2.0'
+gem 'caracal',       '~> 1.0'
+gem 'caracal-rails', '~> 1.0'

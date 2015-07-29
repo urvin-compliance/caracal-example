@@ -1,28 +1,31 @@
-== README
+= Caracal Example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a simple Rails application that demonstrates how to
+use Caracal to generate MSWord documents in what the library authors
+deem idiomatic usage.  You can, of course, implement the library any
+way you see fit.  This is merely a suggestion.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Additionally, this project produces a Word document that demonstrates
+nearly every configuration option Caracal can manage. As such, the core
+team often uses the resulting output for compatibility tests between
+the innumerable versions of Word.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Getting Started
+
+=== Web Server
+
+Because this example page includes images, it requires more than one
+processing thread. **Please, do not use Webrick.**  Webrick is
+single-threaded.  If you try to load the example page using Webrick,
+the request will timeout.
+
+We recommend using Unicorn instead.  The unicorn gem will be installed
+when you `bundle install`.
+
+
+== Routes
+
+The project is configured to run the example code from the root route.
+To generate the file, simply load http://localhost:3000 (or whichever
+hostname and port you prefer).
