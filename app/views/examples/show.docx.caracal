@@ -18,7 +18,7 @@ docx.style id: 'AltFont', name: 'altFont', font: 'Palatino'
 7.times do
   docx.p
 end
-docx.img image_url('https://app.plia.com/images/plia-login.png'), width: 400, height: 124, align: :right
+docx.img 'https://app.plia.com/images/plia-login.png', width: 400, height: 124, align: :right
 
 
 12.times do
@@ -279,14 +279,14 @@ docx.p
 # Tables
 #-----------------------------------------------------
 
-row1 = ['Header 1', 'Header 2', 'Header 3']
-row2 = ['Cell 1', 'Cell 2', 'Cell 3']
-row3 = ['Cell 4', 'Cell 5', 'Cell 6']
-row4 = ['Footer 1', 'Footer 2', 'Footer 3']
+row1 = ['Key', 'Value']
+row2 = ['Key 1', 'Value 1']
+row3 = ['Key 2', 'Value 2']
+row4 = ['Key 3', 'Value 3']
 c1 = Caracal::Core::Models::TableCellModel.new margins: { top: 0, bottom: 100, left: 0, right: 200 } do
   table [row1.dup, row2.dup, row3.dup, row4.dup], border_size: 4 do
+    cell_style cols[0],  bold: true, background: 'dddddd'
     cell_style rows[0],  bold: true, background: '3366cc', color: 'ffffff'
-    cell_style rows[-1], bold: true,   background: 'dddddd'
     cell_style cells[3], italic: true, color: 'cc0000'
     cell_style cells,    size: 18, margins: { top: 100, bottom: 0, left: 100, right: 100 }
   end
