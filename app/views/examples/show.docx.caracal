@@ -199,24 +199,6 @@ docx.ol do
   end
 end
 docx.p
-docx.p 'This is an ordered list with nested levels:'
-docx.ol do
-  li 'This is the first item.'
-  li do
-    text 'This is a second item.'
-    ol do
-      li 'This is a nested item.'
-    end
-  end
-  li do
-    text 'This is a third item with a '
-    link 'link', 'http://www.google.com'
-    text '.'
-    br
-    text 'This sentence follows a line break.'
-  end
-end
-docx.p
 docx.p 'This is an unordered list with nested levels:'
 docx.ul do
   li 'This is the first item.'
