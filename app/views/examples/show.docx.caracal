@@ -18,7 +18,8 @@ docx.style id: 'AltFont', name: 'altFont', font: 'Palatino'
 7.times do
   docx.p
 end
-docx.img 'https://app.plia.com/images/plia-login.png', width: 400, height: 124, align: :right
+data = Base64.encode64(File.read('public/plia-login.png'))
+docx.img 'public/plia-login.png', data: data, width: 400, height: 124, align: :right
 
 
 12.times do
