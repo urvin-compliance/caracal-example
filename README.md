@@ -20,7 +20,7 @@ processing thread. **Please, do not use Webrick.**  Webrick is
 single-threaded.  If you try to load the example page using Webrick,
 the request will timeout.
 
-We recommend using Unicorn instead.  The unicorn gem will be installed
+We recommend using Puma instead.  The puma gem will be installed
 when you `bundle install`.
 
 

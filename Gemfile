@@ -10,7 +10,7 @@ gem 'rails'
 
 # database/server
 gem 'sqlite3'
-gem 'unicorn'
+gem 'puma'
 
 
 # caracal

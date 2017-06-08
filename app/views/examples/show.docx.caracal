@@ -4,6 +4,7 @@
 
 docx.page_numbers true do
   align :center
+  label 'Page'
 end
 
 docx.font name: 'Courier New'
