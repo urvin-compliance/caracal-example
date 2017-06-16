@@ -248,13 +248,13 @@ docx.hr
 
 docx.p 'Caracal allows images to be embedded in and distributed with the document. Images can be sized to any dimension and aligned to the left, center, or right.'
 docx.p
-docx.img 'https://app.plia.com/images/plia-login.png', width: 200, height: 62, align: :left
+docx.img 'https://github.com/trade-informatics/caracal-example/blob/master/public/plia-login.png', width: 200, height: 62, align: :left
 docx.p 'This image is left aligned.'
 docx.p
-docx.img 'https://app.plia.com/images/plia-login.png', width: 200, height: 62, align: :center
+docx.img 'https://github.com/trade-informatics/caracal-example/blob/master/public/plia-login.png', width: 200, height: 62, align: :center
 docx.p 'This image is center aligned.', align: :center
 docx.p
-docx.img 'https://app.plia.com/images/plia-login.png', width: 200, height: 62, align: :right
+docx.img 'https://github.com/trade-informatics/caracal-example/blob/master/public/plia-login.png', width: 200, height: 62, align: :right
 docx.p 'This image is right aligned.', align: :right
 docx.p
 
@@ -327,3 +327,24 @@ docx.p
 docx.h2 'Numbers'
 docx.p 'Caracal allows you to add page numbers to the footer. If elected, page numbers can be aligned to the left, center, or right. By default, page numbers are not included.'
 docx.p
+
+
+#----------------------------------------------------------
+# Experimental
+#----------------------------------------------------------
+
+docx.page
+docx.h1 'Experimental Features'
+docx.hr
+
+docx.h2 'IFrames'
+docx.p 'Caracal supports including the contents of an external Word document into your working document. It should be noted that iframes are an imperfect metaphor given that Caracal fully includes the external file into its own output (i.e., subsequent changes to the included file will not be reflected in the Caracal document).'
+docx.p
+
+docx.p 'External documents can be included via URL:', bold: true
+docx.p
+docx.iframe url: 'http://localhost:3000/snippet.docx'
+
+docx.p 'Or by supplying the file data directly:', bold: true
+docx.p
+docx.iframe data: File.read('public/snippet.docx')

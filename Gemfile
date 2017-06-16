@@ -14,4 +14,5 @@ gem 'puma'
 
 
 # caracal
+gem 'caracal'
 gem 'caracal-rails'

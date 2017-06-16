@@ -40,7 +40,7 @@ GEM
       tzinfo (~> 1.1)
     arel (8.0.0)
     builder (3.2.3)
-    caracal (1.0.9)
+    caracal (1.0.11)
       nokogiri (~> 1.6)
       rubyzip (~> 1.1)
       tilt (>= 1.4)
@@ -115,6 +115,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  caracal
   caracal-rails
   puma
   rails
