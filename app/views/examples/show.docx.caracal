@@ -248,13 +248,13 @@ docx.hr
 
 docx.p 'Caracal allows images to be embedded in and distributed with the document. Images can be sized to any dimension and aligned to the left, center, or right.'
 docx.p
-docx.img 'https://github.com/trade-informatics/caracal-example/blob/master/public/plia-login.png', width: 200, height: 62, align: :left
+docx.img 'https://raw.githubusercontent.com/trade-informatics/caracal-example/master/public/plia-login.png', width: 200, height: 62, align: :left
 docx.p 'This image is left aligned.'
 docx.p
-docx.img 'https://github.com/trade-informatics/caracal-example/blob/master/public/plia-login.png', width: 200, height: 62, align: :center
+docx.img 'https://raw.githubusercontent.com/trade-informatics/caracal-example/master/public/plia-login.png', width: 200, height: 62, align: :center
 docx.p 'This image is center aligned.', align: :center
 docx.p
-docx.img 'https://github.com/trade-informatics/caracal-example/blob/master/public/plia-login.png', width: 200, height: 62, align: :right
+docx.img 'https://raw.githubusercontent.com/trade-informatics/caracal-example/master/public/plia-login.png', width: 200, height: 62, align: :right
 docx.p 'This image is right aligned.', align: :right
 docx.p
 
