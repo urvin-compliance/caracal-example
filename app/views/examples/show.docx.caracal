@@ -42,7 +42,7 @@ docx.h1 'Introduction'
 docx.hr
 
 docx.h2 'Overview'
-docx.p 'Caracal is a pure Ruby library for generating dynamic Microsoft Word documents. While the library does not support the entire Open XML specification, most common Word features are available.'
+docx.p "Caracal is a pure Ruby library for generating\ndynamic Microsoft Word documents. While the library does not support the entire Open XML specification, most common Word features are available."
 docx.p
 docx.p 'Major features include:'
 docx.ul do
@@ -96,13 +96,30 @@ docx.p 'This sentence is rendered in blue.', color: '3366cc'
 docx.p 'This sentence is rendered in red.', color: 'cc3300'
 docx.p
 
-docx.h2 'Highlights'
+docx.h2 'Background colors'
 docx.p 'Caracal can render background colors in any RGB color you specify.'
 docx.p
-docx.p 'This paragraph is completely highlighted.', bgcolor: 'b6d7a8'
+docx.p 'This paragraph is completely shaded.', bgcolor: 'b6d7a8'
 docx.p do
   text 'This sentence contains a '
   text 'highlighted run', bgcolor: 'b6d7a8'
+  text ' within the text.'
+end
+docx.p
+
+docx.h2 'Highlighting'
+docx.p 'Caracal can highlight text in one of an enumerated colors supported by OOXML.'
+docx.p 'If you need a specific RGB value, please use the :bgcolor option instead.', italic: true, size: 16
+docx.p do
+  text 'To view a list of supported highlight colors, please ', italic: true, size: 16
+  link 'review the OOXML spec', 'http://www.datypic.com/sc/ooxml/t-w_ST_HighlightColor.html', italic: true, size: 16
+  text '.', italic: true, size: 16
+end
+docx.p
+docx.p 'This paragraph is highlighted in yellow.', highlight_color: 'yellow'
+docx.p do
+  text 'This sentence contains a '
+  text 'highlighted run', highlight_color: 'magenta'
   text ' within the text.'
 end
 docx.p
@@ -172,9 +189,20 @@ docx.h2 'Links'
 docx.p 'Caracal supports adding external links to your document. Similar to headings, links support all the same options as paragraphs.'
 docx.p
 docx.p do
-  text 'This sentence has a link to the '
+  text 'This sentence has an external link to the '
   link 'Google', 'http://www.google.com'
   text ' homepage.'
+end
+docx.p
+docx.p do
+  text 'This sentence has an internal link to a '
+  link 'document-level bookmark', 'h2Example', internal: true
+  text '.'
+end
+docx.p do
+  text 'This sentence has an internal link to a '
+  link 'paragraph-level bookmark', 'pExample', internal: true
+  text '.'
 end
 docx.p
 
@@ -234,6 +262,35 @@ docx.ul do
     link 'link', 'http://www.google.com'
     text '.'
   end
+end
+docx.p
+
+
+#-----------------------------------------------------
+# Bookmarks
+#-----------------------------------------------------
+
+docx.page
+docx.h1 'Bookmarks'
+docx.hr
+
+docx.p 'Caracal allows bookmarks to be embedded both in the document and in paragraph blocks. Bookmarks work in conjunction with internal links.  Please see previous page for details.'
+docx.p
+
+docx.bookmark_start id: '1', name: 'h2Example'
+docx.h2 'Bookmarked Header'
+docx.bookmark_end id: '1'
+docx.p 'In enim metus, luctus quis luctus quis, gravida facilisis augue. Integer sit amet orci quis est porta consectetur. Phasellus sed elit suscipit, posuere ipsum at, sodales massa. Curabitur dictum ligula ac augue consequat vehicula. Maecenas tempor sit amet lacus eget suscipit. Suspendisse eleifend quam quis egestas ultrices. In sapien est, laoreet sed odio vulputate, blandit laoreet nisl. Fusce molestie lobortis risus quis elementum. Maecenas lobortis justo dui, vel varius lacus accumsan vel. Ut felis nisl, ultricies vel aliquam a, accumsan in nulla. Pellentesque placerat congue dui. Vivamus sed risus a leo sagittis varius.'
+docx.p 'Donec pharetra blandit elementum. Donec id nibh vitae tortor dictum finibus. Pellentesque at turpis ac nulla interdum euismod id eu neque. Suspendisse varius rutrum ex, non vulputate leo lacinia non. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras sed purus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pretium fringilla tristique. Morbi purus mauris, ultricies id metus ut, consequat ullamcorper purus. Nunc id eros at eros maximus laoreet a in lorem. Curabitur felis felis, molestie vitae justo iaculis, dapibus ultrices urna. Vivamus in feugiat est. Quisque tincidunt diam et diam sollicitudin ultrices.'
+docx.p
+
+docx.h2 'Bookmarked Text'
+docx.p do
+  text 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non condimentum nisl. Nam vel urna ipsum '
+  bookmark_start id: '2', name: 'pExample'
+  text 'with bookmarked text ', highlight_color: 'yellow'
+  bookmark_end id: '2'
+  text 'vulputate, nibh ac laoreet efficitur, tortor diam tempor dui, id interdum magna sem sit amet sem. Nam volutpat felis quis neque ultricies sodales.'
 end
 docx.p
 
