@@ -13,19 +13,19 @@ the innumerable versions of Word.
 
 ## Getting Started
 
+Requires Ruby 3.4 (see `.ruby-version`) and Rails 8.1.
+
+```bash
+bundle install
+bin/rails server
+```
+
+Then load http://localhost:3000 and follow the link to generate the
+example document.
+
 ### Web Server
 
-Because this example page includes images, it requires more than one
-processing thread. **Please, do not use Webrick.**  Webrick is
-single-threaded.  If you try to load the example page using Webrick,
-the request will timeout.
-
-We recommend using Puma instead.  The puma gem will be installed
-when you `bundle install`.
-
-
-### Routes
-
-The project is configured to run the example code from the root route.
-To generate the file, simply load http://localhost:3000 (or whichever
-hostname and port you prefer).
+Because the example document includes an external file fetched over
+HTTP from this same app, it requires more than one processing thread.
+Puma (the default) is configured with multiple threads, so it works
+out of the box.
