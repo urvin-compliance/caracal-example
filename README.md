@@ -23,6 +23,9 @@ bin/rails server
 Then load http://localhost:3000 and follow the link to generate the
 example document.
 
+To run in production mode, set `SECRET_KEY_BASE` (e.g. from
+`bin/rails secret`).
+
 ### Web Server
 
 Because the example document includes an external file fetched over
