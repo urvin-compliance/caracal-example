@@ -19,7 +19,7 @@ docx.style id: 'AltFont', name: 'altFont', font: 'Palatino'
 7.times do
   docx.p
 end
-docx.img Rails.root.join('public/plia-login.png').to_s, width: 400, height: 124, align: :right
+docx.img Rails.root.join('public/plia-login.png').to_s, width: 400, height: 92, align: :right
 
 
 12.times do
@@ -304,13 +304,13 @@ docx.hr
 
 docx.p 'Caracal allows images to be embedded in and distributed with the document. Images can be sized to any dimension and aligned to the left, center, or right.'
 docx.p
-docx.img 'https://raw.githubusercontent.com/urvin-compliance/caracal-example/master/public/plia-login.png', width: 200, height: 62, align: :left
+docx.img 'https://raw.githubusercontent.com/urvin-compliance/caracal-example/master/public/plia-login.png', width: 200, height: 46, align: :left
 docx.p 'This image is left aligned.'
 docx.p
-docx.img 'https://raw.githubusercontent.com/urvin-compliance/caracal-example/master/public/plia-login.png', width: 200, height: 62, align: :center
+docx.img 'https://raw.githubusercontent.com/urvin-compliance/caracal-example/master/public/plia-login.png', width: 200, height: 46, align: :center
 docx.p 'This image is center aligned.', align: :center
 docx.p
-docx.img 'https://raw.githubusercontent.com/urvin-compliance/caracal-example/master/public/plia-login.png', width: 200, height: 62, align: :right
+docx.img 'https://raw.githubusercontent.com/urvin-compliance/caracal-example/master/public/plia-login.png', width: 200, height: 46, align: :right
 docx.p 'This image is right aligned.', align: :right
 docx.p
 
